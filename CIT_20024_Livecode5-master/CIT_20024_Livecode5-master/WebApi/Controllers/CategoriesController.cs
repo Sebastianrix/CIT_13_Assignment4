@@ -43,8 +43,6 @@ public class CategoriesController : ControllerBase
         return Ok(model);
     }
 
-   
-
     [HttpPost]
     public IActionResult CreateCategory(CreateCategoryModel model)
     {
@@ -59,7 +57,7 @@ public class CategoriesController : ControllerBase
 
         if (result)
         {
-            return NoContent();
+            return Ok();
         }
 
         return NotFound();
@@ -70,27 +68,22 @@ public class CategoriesController : ControllerBase
     {
         var category = _dataService.GetCategory(id);
 
-        if(category == null)
+        if (category == null)
         {
             return NotFound();
         }
 
-        
-
         category.Name = model.Name;
         category.Description = model.Description;
 
-
         _dataService.UpdateCategory(category);
 
-        return NoContent();
+        return Ok();
     }
-
-
 
     private CategoryModel? CreateCategoryModel(Category? category)
     {
-        if(category == null)
+        if (category == null)
         {
             return null;
         }
