@@ -7,8 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DataLayer;
-internal class NorthwindContext : DbContext
+public class NorthwindContext : DbContext
 {
+    // Constructor that accepts DbContextOptions
+    public NorthwindContext(DbContextOptions<NorthwindContext> options) : base(options)
+    {
+    }
     public DbSet<Category> Categories { get; set; } = null!;
     public DbSet<Product> Products { get; set; } = null!;
     public DbSet<Order> Orders { get; set; } = null!;
