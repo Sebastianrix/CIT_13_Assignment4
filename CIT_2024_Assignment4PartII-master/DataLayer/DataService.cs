@@ -9,8 +9,6 @@ namespace DataLayer
         public readonly NorthwindContext _dbContext;
 
 
-        // Default constructor for testing or when no context is passed
-        // Constructor for testing or when no context is passed
         public DataService(NorthwindContext? dbContext = null)
         {
             if (dbContext == null)
