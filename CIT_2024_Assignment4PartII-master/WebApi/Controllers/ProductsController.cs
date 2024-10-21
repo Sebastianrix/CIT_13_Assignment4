@@ -33,7 +33,7 @@ namespace WebApi.Controllers
 
             if (products == null || !products.Any())
             {
-                return NotFound();
+                return NotFound(new List<Product>());
             }
 
             return Ok(products);
@@ -46,10 +46,11 @@ namespace WebApi.Controllers
 
             if (products == null || !products.Any())
             {
-                return NotFound();
+                return NotFound(new List<Product>());
             }
 
             return Ok(products);
         }
+
     }
 }
